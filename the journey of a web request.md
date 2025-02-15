@@ -137,7 +137,7 @@ How These Mechanisms Manage Data Flow & Congestion :
 
 ### TCP Connection: Managing Data Flow and Network Congestion
 
-Two key mechanisms within TCP that manage data flow and network congestion are TCP Window Sizing and Congestion Control Algorithms.
+Two key mechanisms within TCP that manage data flow and network congestion are **TCP Window Sizing** and **Congestion Control Algorithms**.
 
 #### 1. TCP Window sizing
 TCP window sizing is a flow control technique used to manage the amount of data a sender can transmit before receiving an acknowledgment (ACK) from the receiver. 
