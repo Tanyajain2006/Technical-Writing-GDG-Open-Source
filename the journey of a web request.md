@@ -145,6 +145,7 @@ It prevents overwhelming the receiver's buffer by controlling the volume of in-t
 
 #### Working
 1.The receiver advertises a window size (in bytes), indicating how much data it can accept without being overwhelmed.
+
 2.The sender can transmit data up to the window size without waiting for an ACK. As ACKs are received, the window "slides" forward, allowing more data to be sent.
 This is known as the **Sliding Window Protocol**.
 
