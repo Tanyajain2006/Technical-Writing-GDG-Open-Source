@@ -135,6 +135,59 @@ How These Mechanisms Manage Data Flow & Congestion :
 4.Maintains fairness: Multiplicative decrease ensures all network users get a fair share of bandwidth.
 
 
+### TCP Connection: Managing Data Flow and Network Congestion
+
+Two key mechanisms within TCP that manage data flow and network congestion are **TCP Window Sizing** and **Congestion Control Algorithms**.
+
+#### 1. TCP Window sizing
+TCP window sizing is a flow control technique used to manage the amount of data a sender can transmit before receiving an acknowledgment (ACK) from the receiver. 
+It prevents overwhelming the receiver's buffer by controlling the volume of in-transit packets.
+
+#### Working
+1.The receiver advertises a window size (in bytes), indicating how much data it can accept without being overwhelmed.
+
+2.The sender can transmit data up to the window size without waiting for an ACK. As ACKs are received, the window "slides" forward, allowing more data to be sent.
+This is known as the **Sliding Window Protocol**.
+
+#### Advantages
+- Flow Control: Ensures that the sender does not exceed the receiver's processing capacity, preventing buffer overflow and data loss.
+- Efficient Utilization: Increases network efficiency by allowing multiple packets to be in transit, reducing idle time.
+- Dynamic Adjustment: The window size dynamically adjusts based on network conditions and receiver capacity, optimizing throughput.
+
+#### 2. Congestion Control Algorithms
+
+#### Advantages
+In a network environment, multiple devices compete for limited bandwidth. If too much data is transmitted simultaneously, it can lead to:
+- Packet Loss: Network devices (routers and switches) drop packets when their buffers are full.
+- High Latency: Increased queuing delays result in slower data transmission.
+- Reduced Throughput: Overall network performance is degraded.
+  
+TCP uses congestion control algorithms to prevent congestion collapse and ensure fair resource allocation.
+
+####  Additive Increase Multiplicative Decrease (AIMD)
+AIMD is one of the most widely used congestion control algorithms in TCP. It adjusts the Congestion Window to control the amount of data a sender can transmit before
+receiving an ACK.
+
+##### Working
+Two strategies are used in this:
+- Additive Increase:
+  - When the network is stable, the sender additively increases the congestion window.
+  - Typically, the window size is incremented linearly by one Maximum Segment Size (MSS) per Round-Trip Time (RTT).
+
+- Multiplicative Decrease:
+  - When packet loss is detected (signaling network congestion), the sender multiplicatively decreases the congestion window, usually by half.
+  - This rapid reduction helps alleviate congestion, allowing the network to recover quickly.
+ 
+##### Managing Data Flow and Network Congestion
+**a. Efficient Data Flow**
+By dynamically adjusting the congestion window, AIMD maximizes throughput while preventing network overload.
+
+**b. Fair Bandwidth Allocation**
+AIMD ensures fair distribution of network resources among multiple TCP connections, preventing bandwidth monopolization.
+
+**c. Network Stability**
+AIMD stabilizes network performance by reducing the congestion window upon detecting packet loss, preventing congestion collapse.
+
 
 ## 3. TLS Handshake (for HTTPS)
 - After TCP connection, a secure channel needs to be established
